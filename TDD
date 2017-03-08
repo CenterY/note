@@ -1,0 +1,6 @@
+TDD
+
+1.control + option + command + G  // 重新开始上次的测试
+
+2.一定要先从fail开始 确保测试对象
+

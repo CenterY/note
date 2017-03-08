@@ -1,0 +1,20 @@
+1. 查看xx.app文件的uuid的方法,在 terminal.app 中输入：
+
+$ dwarfdump --uuid xxx.app/xxx (xxx工程名)
+
+2. 查看xx.app.dSYM文件的uuid的方法，在命令行输入：
+
+$ dwarfdump --uuid xxx.app.dSYM (xxx工程名)
+
+3. 查看 crash log 文件的 uuid的方法：
+
+在 crash log 文件中，找到 Binary Images: 项目名后面第一个尖括号中的一串码就是改 crash log 文件的 uuid。
+
+1.分析
+atos -arch <Binary Architecture> -o <Path to dSYM file>/Contents/Resources/DWARF/<binary image name> -l <load address> <address to symbolicate>
+
+example 'atos -arch arm64 -o TheElements.app.dSYM/Contents/Resources/DWARF/TheElements -l 0x1000e4000 0x00000001000effdc'
+
+2.查找本机dsym
+
+mdfind "com_apple_xcode_dsym_uuids == <UUID>"

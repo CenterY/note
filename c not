@@ -1,0 +1,37 @@
+c not
+
+1.printf();
+printf会从数组str的开头一直打印到Null字符为止，Null字符本身是Non-printable字符，不打印。这其实是一个危险的信号：如果数组str中没有Null字符，那么printf函数就会访问数组越界，后果可能会很诡异：有时候打印出乱码，有时候看起来没错误，有时候引起程序崩溃
+2.indent工具可以把代码格式化成某种风格
+'indent -kr -i8 main.c'
+-kr选项表示K&R风格，-i8表示缩进8个空格的长度。如果没有指定-nut选项，则每8个缩进空格会自动用一个Tab代替
+
+3.gdb
+$ gcc -g main.c -o main
+$ gdb main
+
+-g选项的作用是在可执行文件中加入源代码的信息
+
+命令	描述
+backtrace（或bt）	查看各级函数调用及参数
+finish	连续运行到当前函数返回为止，然后停下来等待命令
+frame（或f） 帧编号	选择栈帧
+info（或i） locals	查看当前栈帧局部变量的值
+list（或l）	列出源代码，接着上次的位置往下列，每次列10行
+list 行号	列出从第几行开始的源代码
+list 函数名	列出某个函数的源代码
+next（或n）	执行下一行语句
+print（或p）	打印表达式的值，通过表达式可以修改变量的值或者调用函数
+quit（或q）	退出gdb调试环境
+set var	修改变量的值
+start	开始执行程序，停在main函数第一行语句前面等待命令
+step（或s）	执行下一行语句，如果有函数调用则进入到函数中
+
+lldb
+1. b 行号，函数名
+2. expr 修改变量值
+expr unsigned int $foo = 5
+3. fr v 查看局部变量
+4. display va 显示变量va 的值
+5. br l 列出所有断点
+6. breakpoint disable 1 暂停断点

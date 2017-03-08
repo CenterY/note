@@ -1,0 +1,46 @@
+{
+    "server":"0.0.0.0",
+    "port_password":{
+		"55001":"lizhongqiang",
+		"55002":"lizhongqiang",
+		"55003":"lizhongqiang",
+		"55004":"lizhongqiang",
+		"55005":"lizhongqiang",
+		"55006":"lizhongqiang",
+		"55007":"lizhongqiang",
+		"55008":"lizhongqiang",
+		"55009":"lizhongqiang",
+		"55000":"lizhongqiang",
+		"56001":"hanbaoyu",
+		"56002":"hanbaoyu",iPad 公司
+		"56003":"hanbaoyu",
+		"56004":"hanbaoyu",
+		"56005":"hanbaoyu",
+		"56006":"hanbaoyu", 朱仁龙
+		"56007":"hanbaoyu",
+		"56008":"hanbaoyu",
+		"56009":"hanbaoyu",
+		"56000":"hanbaoyu" 手机
+    },
+    "method":"aes-256-cfb",
+    "timeout":600
+}
+
+[Unit]
+Description=Shadowsocks
+
+[Service]
+TimeoutStartSec=0
+ExecStart=/usr/bin/ssserver -c /etc/shadowsocks.json
+
+[Install]
+WantedBy=multi-user.target
+
+./configure --sysconfdir=/etc --disable-sql --disable-mysql --disable-ldap --enable-dhcp --enable-eap-identity --enable-eap-mschapv2 --enable-md4 --enable-xauth-eap --enable-eap-peap --enable-eap-md5 --enable-openssl --enable-shared --enable-unity --enable-eap-tls   --enable-eap-ttls --enable-eap-tnc --enable-eap-dynamic --enable-addrblock --enable-radattr --enable-nat-transport --enable-kernel-netlink --enable-kernel-libipsec
+./configure --sysconfdir=/etc --disable-sql --disable-mysql --disable-ldap --enable-dhcp --enable-eap-identity --enable-eap-mschapv2 --enable-md4 --enable-xauth-eap --enable-eap-peap --enable-eap-md5 --enable-openssl --enable-shared --enable-unity --enable-eap-tls   --enable-eap-ttls --enable-eap-tnc --enable-eap-dynamic --enable-addrblock --enable-radattr --enable-nat-transport --enable-kernel-netlink --enable-kernel-libipsec
+
+
+yum install http://ftp.nluug.nl/pub/os/Linux/distr/fedora-epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+
+wget http://dl.fedoraproject.org/pub/epel/7/x86_64/x/xl2tpd-1.3.6-8.el7.x86_64.rpm
+rpm -ihv l2tpd-1.3.6-8.el7.x86_64.rpm
