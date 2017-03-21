@@ -5,3 +5,6 @@
 2. 快速地显示出你的系统中能用来对代码进行签名的认证的方法，那就是利用用途广泛的命令行工具 security：
 
 		security find-identity -v -p codesigning
+3. 查看描述文件信息
+
+		security cms -D -i example.mobileprovision
