@@ -1,3 +1,7 @@
 1. 可使用openssl查看证书信息
 
 		openssl x509 -inform der -in ios_distribution.cer -noout -text
+		
+2. 快速地显示出你的系统中能用来对代码进行签名的认证的方法，那就是利用用途广泛的命令行工具 security：
+
+		security find-identity -v -p codesigning
