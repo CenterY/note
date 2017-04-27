@@ -175,5 +175,6 @@ rotationMode的属性。设置它为常量kCAAnimationRotateAuto，图层将会�
 
 19. UIKit
 
-
-
+tip
+animation 所在layer 被其他页面覆盖或者按home键，animationDidStop 会被调用一次，并且动画会被删除
+http://stackoverflow.com/questions/7568567/restoring-animation-where-it-left-off-when-app-resumes-from-background
