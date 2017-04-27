@@ -1,0 +1,26 @@
+1. 学objective-c先懂c
+2. 头文件进量少引入其他头文件（使用@class 延后引入时机，减少编译时间）
+3. 多用字面量（代码简洁）
+4. 少用宏定义,并尽量不放在头文件（1.没有类型2.如果定义在头文件后被其他类引用，可能替换不需要替换的内容）
+使用 static const NSTimeInterval animationduration = 0.3;
+5. 使用枚举
+	使用typedef enmu enumname {}; 可以省去 enum 关键字 如 ：enum enumname status = enumvalue
+	enum enumname : Int {}; 可以指定底层使用类型
+	通过按位或操作符组合多个枚举选项，通过按位与操作符判断是否已经启用某个选项
+	如：
+		UIViewAutoresizing resizing = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    	if (resizing & UIViewAutoresizingFlexibleHeight) {
+        
+    	}
+
+    使用NSENUM （枚举不需要互相组合使用） 和 NS_OPTION（枚举需要互相组合使用）宏定义枚举
+    处理枚举类型的switch语句不要用default 防止后面新加类型后编译器不提示
+
+6. 属性 （使用atomic 属性会严重影响性能）
+7. 容器中尽量不放可变类型（set 内可变对象变化相同后 copy）
+8. 编写hash码时使用计算快并且哈希吗碰撞几率低的算法
+
+
+
+[Common] _BSMachError: port c1f3; (os/kern) invalid capability (0x14) "Unable to insert COPY_SEND"
+2017-03-13 14:48:27.689076 Athena[921:208053] [Common] _BSMachError: port c1f3; (os/kern) invalid name (0xf) "Unable to deallocate send right"
