@@ -1,0 +1,5 @@
+1.使用 protoc 工具生成Objective-C代码。其中--proto_path=后跟需要处理的proto文件所在的文件夹，--objc_out=指明生成的是Objective-C代码以及目标文件存放路径，最后是需要处理的文件。
+$ protoc --proto_path=. --objc_out=. Person.proto
+$ ls
+Person.pbobjc.h Person.pbobjc.m Person.proto
+处理完成后，生成两个文件，分别是 Person.pbobjc.h 和 Person.pbobjc.m 。这两个文件是采用的手动引用计数，因此在加入项目后需要设置它们的编译参数。
