@@ -1,3 +1,8 @@
+
+编辑CAMediaTimingFunction
+ http://netcetera.org/camtf-playground.html
+ 
+ 
  case CustomTimingFunctionDefault:
             return [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
             break;
