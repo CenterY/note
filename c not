@@ -62,3 +62,5 @@ $ indent -kr -i8 main.c
 push这个标识符具有External Linkage指的是：如果把main.c和stack.c链接在一起，如果push在main.c和stack.c中都有声明（在stack.c中的声明同时也是定义），
 那么这些声明指的是同一个函数，链接之后是同一个GLOBAL符号，代表同一个地址。
 函数声明中的extern也可以省略不写，不写extern的函数声明也表示这个函数具有External Linkage。
+
+函数声明的extern可写可不写，而变量声明如果不写extern意思就完全变了
