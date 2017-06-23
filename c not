@@ -64,3 +64,7 @@ push这个标识符具有External Linkage指的是：如果把main.c和stack.c�
 函数声明中的extern也可以省略不写，不写extern的函数声明也表示这个函数具有External Linkage。
 
 函数声明的extern可写可不写，而变量声明如果不写extern意思就完全变了
+
+用static关键字声明具有Internal Linkage的函数也是出于这个目的。在一个模块中，有些函数是提供给外界使用的，也称为导出（Export）给外界使用，
+这些函数声明为External Linkage的。
+有些函数只在模块内部使用而不希望被外界访问到，则声明为Internal Linkage的
