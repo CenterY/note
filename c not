@@ -68,3 +68,7 @@ push这个标识符具有External Linkage指的是：如果把main.c和stack.c�
 用static关键字声明具有Internal Linkage的函数也是出于这个目的。在一个模块中，有些函数是提供给外界使用的，也称为导出（Export）给外界使用，
 这些函数声明为External Linkage的。
 有些函数只在模块内部使用而不希望被外界访问到，则声明为Internal Linkage的
+
+对于用角括号包含的头文件，gcc首先查找-I选项指定的目录，然后查找系统的头文件目录（通常是/usr/include，
+在我的系统上还包括/usr/lib/gcc/i486-linux-gnu/4.3.2/include）；而对于用引号包含的头文件，gcc首先查找包含头文件的.c文件所在的目录，
+然后查找-I选项指定的目录，然后查找系统的头文件目录
