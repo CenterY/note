@@ -1,0 +1,4 @@
+vps
+
+scp -R -P 22334 localpath user@ip:/path
+
