@@ -1,0 +1,2 @@
+    NSURLSession *session = [NSURLSession sharedSession];
+    对使用sharedSession创建的对象调用finishTasksAndInvalidate 会导致无法创建新的task。
