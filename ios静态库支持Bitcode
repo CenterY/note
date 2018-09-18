@@ -1,0 +1,31 @@
+支持Bitcode
+
+需要注意的是Bitcode只默认在archive下编译。在debug和release下并不会。
+
+如果您开发的是app，那么走正常的打包archive流程就好了。
+
+如果你正在开发.a静态库或者framework，请注意打包方式设置为archive，或者在打包脚本中加入-fembed-bitcode参数。
+
+如果需要的话，需要在Build Settings中打开 DEPLOYMENT_POSTPROCESSING=YES，
+设置STRIP_STYLE为Debugging Symbols。
+
+
+DEPLOYMENT_POSTPROCESSING=YES
+
+
+关于-fembed-bitcode参数（fembed-bitcode-maker:只是简单的标记一下在archive出来的二进制中bitcdoe所在的位置，fembed-bitcode: 真的会生成bitcode指令，并且嵌入到二进制中，这个设置不止要在app中设置，同样你也必须在编译静态链接库的时候使用）
+Build Settings->Compiler Flags添加-fembed-bitcode参数
+
+
+-fembed-bitcode参数
+然后按照按照上面制作方法进行编译.a，合并.a
+当打开bitcdoe选项之后，我们可以使用otool工具来检查二进制文件中是否包含bitcode段。
+
+//针对于静态链接库.a文件  (armv7 i386 x86_64 arm64)(注意空格)
+otool -arch armv7 -l xxxx.a | grep __bitcode | wc -l 
+otool -arch i386 -l xxxx.a | grep __bitcode | wc -l 
+otool -arch x86_64 -l xxxx.a | grep __bitcode | wc -l
+otool -arch arm64 -l xxxx.a | grep __bitcode | wc -l 
+如果当前库支持Bitcode .a文件就会输出一个数字
+otool -arch armv7 -l /Users/ang/Desktop/libANGDataCollection_1.8/libANGDataCollection.a | grep __bitcode | wc -l 
+       4
